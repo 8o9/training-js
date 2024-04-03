@@ -1,5 +1,5 @@
 /**
- * 引数の絶対を返す
+ * 引数の絶対値を返す
  * @param {number} x
  * @return {*}  {number}
  */
