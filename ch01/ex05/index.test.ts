@@ -11,16 +11,16 @@ describe("math", () => {
     it("returns zero value when zero given", () => {
       expect(abs(0)).toBe(0);
     });
-    it("return Number.MAX_VALUE when -Number.MAX_VALUE gifen", () => {
+    it("return Number.MAX_VALUE when -Number.MAX_VALUE given", () => {
       expect(abs(-Number.MAX_VALUE)).toBe(Number.MAX_VALUE);
     });
-    it("return 1e-77 when -1e-77 gifen", () => {
+    it("return 1e-77 when -1e-77 given", () => {
       expect(abs(-1e-77)).toBe(1e-77);
     });
-    it("return 0 when 1e-55555 gifen", () => {
+    it("return 0 when 1e-55555 given", () => {
       expect(abs(1e-55555)).toBe(0);
     });
-    it("return Infinity when Infinity gifen", () => {
+    it("return Infinity when Infinity given", () => {
       expect(abs(Infinity)).toBe(Infinity);
     });
   });
