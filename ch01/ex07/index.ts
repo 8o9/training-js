@@ -1,4 +1,3 @@
-
 export class Point {
   private _coords: number[];
 
@@ -11,16 +10,16 @@ export class Point {
   }
 
   setCoords(newcoords: number[]) {
-    if(newcoords.length !== this._coords.length) {
-      throw new Error('Dimensions do not match');
+    if (newcoords.length !== this._coords.length) {
+      throw new Error("Dimensions do not match");
     }
     this._coords = newcoords;
   }
 
   add(newPoint: Point) {
     const newCoords = newPoint.getCoords();
-    if(newCoords.length !== this._coords.length) {
-      throw new Error('Dimensions do not match');
+    if (newCoords.length !== this._coords.length) {
+      throw new Error("Dimensions do not match");
     }
     this._coords = this._coords.map((value, index) => value + newCoords[index]);
   }
