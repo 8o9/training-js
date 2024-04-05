@@ -3,7 +3,8 @@
   <body>
     <script>
       let life = { answer: 42 };
-      console.log(life);
+      console.log(JSON.parse(JSON.stringify(life)));
+      console.log(life.answer);
       document.body.appendChild(document.createComment(JSON.stringify(life)));
       life.answer = 0;
       console.log(life);
