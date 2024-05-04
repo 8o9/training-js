@@ -1,4 +1,5 @@
 # 実行内容
+
 - [江戸川乱歩の"怪奇四十面相"](https://www.aozora.gr.jp/cards/001779/card56673.html)をnkfでUTF-8に変換し、
   - `cat kaiki_yonju_menso.txt|nkf -w > utf8_kaiki_yonju_menso.txt`
 - 変換プログラムを実行した
@@ -6,7 +7,9 @@
   - Node.jsは21.6.2
 
 # 結果
+
 以下のように表示された。漢字が含まれる本だが、ヒストグラムには表示されていない。「、」が一番多いのは言われてみると確かにと思った
+
 ```
 (node:11878) ExperimentalWarning: `--experimental-loader` may be removed in the future; instead use `register()`:
 --import 'data:text/javascript,import { register } from "node:module"; import { pathToFileURL } from "node:url"; register("ts-node/esm", pathToFileURL("./"));'

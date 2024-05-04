@@ -1,0 +1,2 @@
+- `foo`が`undefined`かどうかを比較したいから
+- 以前は`undefined`が上書きできたため、必ず上書きされていない`undefined`を返す`void`を使っていたらしい

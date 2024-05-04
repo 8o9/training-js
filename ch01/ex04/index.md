@@ -8,6 +8,6 @@
   - 通信を使ってサーバ側にlifeオブジェクトの中身を送信する
     - 通信量を無駄に消費してしまいWebサイトの利用者からすると好ましくない
 
-
 fix:
-  - see: https://developer.mozilla.org/ja/docs/Web/API/console/log_static
+
+- see: https://developer.mozilla.org/ja/docs/Web/API/console/log_static
