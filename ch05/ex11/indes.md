@@ -1,0 +1,4 @@
+- 参考
+  -- https://nodejs.org/api/debugger.html
+  -- `inspect` オプションがあるとデバッグモードになるらしく、最初の行から始まるか、設定によってはdebbuger文で停止するらしい。breakしたところでの変数の値が見られるようになるとのこと
+- 可能ならVSCode上でGUI操作した方が楽そう
