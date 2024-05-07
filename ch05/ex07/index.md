@@ -1,0 +1,2 @@
+- falseが返ってくる（表示される）
+- tryでreturn true;が実行されても、finallyの部分は必ず実行されるから？
