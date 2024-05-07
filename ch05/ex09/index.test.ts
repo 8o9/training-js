@@ -2,7 +2,9 @@ import { tryParseJSON } from "./index.ts";
 
 describe("tryParseJSON", () => {
   it("should return success", () => {
-    expect(tryParseJSON(`{"a": 2, "foo": [], "delta": {"c": true}}`)).toStrictEqual({
+    expect(
+      tryParseJSON(`{"a": 2, "foo": [], "delta": {"c": true}}`),
+    ).toStrictEqual({
       success: true,
       data: `{"a": 2, "foo": [], "delta": {"c": true}}`,
     });
