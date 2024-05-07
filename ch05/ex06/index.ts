@@ -1,15 +1,13 @@
 const tryCatchFinally = () => {
   const str = "Buzz!";
-  try{
+  try {
     console.log(str);
     throw new Error("bad things happened.");
-  }
-  catch (e: unknown) {
+  } catch (e: unknown) {
     if (e instanceof Error) {
       console.log(e.message);
     }
-  }
-  finally{
+  } finally {
     console.log("easy come, easy go!");
   }
 };
