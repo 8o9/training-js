@@ -1,6 +1,6 @@
 import { isWeekEnd, isWeekEndS } from "./index.ts";
 
-describe("bitCount", () => {
+describe("weekend?", () => {
   it("should return true when 土 given", () => {
     expect(isWeekEnd("土")).toBe(true);
   });
