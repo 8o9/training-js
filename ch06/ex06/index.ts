@@ -1,13 +1,12 @@
-// WIP
-export const getAllProperties = (obj: object): (symbol|string)[] => {
-  // 列挙可能な継承プロパティはObject.keys()
+export const getAllProperties = (obj: object): (symbol | string)[] => {
   // 列挙不可・Symbolを含めた独自プロパティはReflect.ownKeys()
-  let ret_array: (symbol|string)[] = Reflect.ownKeys(obj);
-  let proto = Object.getPrototypeOf(obj);
+  const ret_array: (symbol | string)[] = [...Reflect.ownKeys(obj)];
 
-  while(proto !== null && proto !== Object.prototype) {
-    ret_array = [...ret_array, ...Object.keys(proto)];
-    proto = Object.getPrototypeOf(proto);
+  // 列挙可能なプロパティ。継承したものも含む
+  for (const p in obj) {
+    ret_array.push(p);
   }
-  return ret_array;
+
+  // 重複は省く
+  return [...new Set(ret_array)];
 };
