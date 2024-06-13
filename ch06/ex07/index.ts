@@ -11,6 +11,7 @@ export const assign = (
     // 列挙可能なプロパティ全てについてコピーするが、
     for (const p in source) {
       // 継承プロパティは除きたい。自身のプロパティのみコピーする
+      // Symbolも
       if (Object.prototype.hasOwnProperty.call(source, p)) {
         target[p] = source[p];
       }
