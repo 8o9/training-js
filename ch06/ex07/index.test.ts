@@ -1,6 +1,6 @@
 import { assign } from "./index.ts";
 
-const symbolA = Symbol('A');
+const symbolA = Symbol("A");
 
 describe("test assign", () => {
   test.each([
