@@ -6,8 +6,9 @@ export const ppp = {
     return this.r * Math.cos(this.theta);
   },
   set x(newX) {
+    if (isNaN(newX)) return;
     const nowY = this.y;
-    this.r = Math.sqrt(newX * newX + nowY * nowY);
+    this.r = Math.hypot(newX, nowY);
     this.theta = Math.atan2(nowY, newX);
   },
 
@@ -15,8 +16,9 @@ export const ppp = {
     return this.r * Math.sin(this.theta);
   },
   set y(newY) {
+    if (isNaN(newY)) return;
     const nowX = this.x;
-    this.r = Math.sqrt(nowX * nowX + newY * newY);
+    this.r = Math.hypot(nowX, newY);
     this.theta = Math.atan2(newY, nowX);
   },
 };
