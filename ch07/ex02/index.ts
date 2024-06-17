@@ -1,32 +1,17 @@
 export const fizzbuzz = (n: number) => {
-  for (let i = 1; i <= n; i++) {
-    if (i % 15 === 0) {
-      console.log("FizzBuzz");
-    } else if (i % 3 === 0) {
-      console.log("Fizz");
-    } else if (i % 5 === 0) {
-      console.log("Buzz");
-    } else {
-      console.log(i);
-    }
-  }
+  Array.from({ length: n }, (_, i) => i + 1).forEach((i) =>
+    console.log((i % 3 ? "" : "Fizz") + (i % 5 ? "" : "Buzz") || i),
+  );
 };
 
 export const sumOfSquaredDifference = (f: number[], g: number[]) => {
-  let result = 0;
-  for (let i = 0; i < f.length; i++) {
-    result += (f[i] - g[i]) ** 2;
-  }
-  return result;
+  let sum = 0;
+  f.map((n, i) => n - g[i]).forEach((v) => (sum += v ** 2));
+  return sum;
 };
 
 export const sumOfEvensIsLargerThan42 = (array: number[]) => {
   let sum = 0;
-  for (let i = 0; i < array.length; i++) {
-    if (array[i] % 2 !== 0) {
-      continue;
-    }
-    sum += array[i];
-  }
+  array.filter(x => x % 2 === 0).forEach(x => sum += x);
   return sum >= 42;
 };
