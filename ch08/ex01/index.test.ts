@@ -10,7 +10,7 @@ describe("func8_1_1", () => {
     expect(func8_1_1(1.5, "a")).toBeUndefined();
   });
 
-  it("should return undefined when given a string length not equal to 1", () => {
+  it("should return undefined when given a string is 'BAD' string", () => {
     expect(func8_1_1(3, "")).toBeUndefined();
     expect(func8_1_1(3, "ab")).toBeUndefined();
     expect(func8_1_1(3, "😀")).toBeUndefined();
