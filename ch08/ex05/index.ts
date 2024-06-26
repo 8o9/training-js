@@ -1,4 +1,5 @@
 export const sequenceToObject = (...values: (string | number)[]) => {
+  // console.log(Array.isArray(values)); -> true
   // 引数の数は偶数でないといけない。これだけだとstring:numberの順番はチェックできないので
   if (values.length % 2 !== 0) {
     throw new Error(
