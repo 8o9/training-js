@@ -2,7 +2,6 @@ import { any } from "./index.ts";
 
 describe("any function", () => {
   it("should return false/true/", () => {
-
     const overZero = (n: number) => n > 0;
     const underZero = (n: number) => n < 0;
     const isNonZero = any(overZero, underZero);
@@ -12,7 +11,7 @@ describe("any function", () => {
     expect(isNonZero(-0.5)).toBe(true);
     expect(isNonZero(NaN)).toBe(false);
   });
-  
+
   it("should return true/false", () => {
     // 偶数
     const isEven = (n: number) => n % 2 === 0;
