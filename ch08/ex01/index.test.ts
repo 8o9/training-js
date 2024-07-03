@@ -1,4 +1,4 @@
-import { func8_1_1, func8_1_2, func8_1_3 } from "./index.ts"; // ファイルパスは適切なものに変更してください
+import { func8_1_1, func8_1_2, func8_1_3 } from "./index.ts";
 
 describe("func8_1_1", () => {
   it("should return an array filled with the character when given valid inputs", () => {
