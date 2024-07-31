@@ -1,0 +1,7 @@
+- AMD, Asynchronous Module Definition
+  - https://requirejs.orgs
+  - https://qiita.com/riku_takeuchi/items/4fd0bca8a99ac14aed45
+  - https://tsuchikazu.net/javascript-module
+- UMD, Universal Module Definition
+  - https://github.com/umdjs/umd
+
