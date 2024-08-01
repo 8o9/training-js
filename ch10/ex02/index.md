@@ -4,4 +4,3 @@
   - https://tsuchikazu.net/javascript-module
 - UMD, Universal Module Definition
   - https://github.com/umdjs/umd
-
