@@ -45,7 +45,7 @@ function typedArrayMultiply() {
 
 const TEST_TIMES = 100;
 const TESTS = [arrayMultiply, typedArrayMultiply];
-function test(fn: { (): void; (): void; (): unknown; }) {
+function test(fn: { (): void; (): void; (): unknown }) {
   let result;
   for (let i = 0; i < TEST_TIMES; ++i) {
     result = fn();
