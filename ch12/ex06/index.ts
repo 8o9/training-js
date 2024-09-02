@@ -10,6 +10,7 @@ export function* walk(rootPath: string): Generator<WalkPath> {
     const filePath: string = path.join(rootPath, file);
     const isDirectory: boolean = fs.statSync(filePath).isDirectory();
     if (isDirectory) {
+      yield { path: filePath, isDirectory: isDirectory }; // @TODO こう書いて動いたが納得してない
       yield* walk(filePath);
     } else {
       yield { path: filePath, isDirectory: isDirectory };
@@ -17,11 +18,11 @@ export function* walk(rootPath: string): Generator<WalkPath> {
   }
 }
 
-// WIP, not tested yet
+// WI
 const printF = (rootPath: string) => {
   for (const f of walk(rootPath)) {
     console.log(f);
   }
 };
 
-printF(".");
+printF("./ch12/");
