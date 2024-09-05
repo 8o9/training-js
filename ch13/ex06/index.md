@@ -1,0 +1,2 @@
+- jQuery DeferredはjQueryライブラリにある、非同期処理を書きやすくするためにJavaScriptで標準実装がなかった時代にリリースされたものらしい
+- 利用方法もPromiseと似ているところがある
