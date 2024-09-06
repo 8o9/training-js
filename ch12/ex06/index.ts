@@ -9,11 +9,9 @@ export function* walk(rootPath: string): Generator<WalkPath> {
   for (const file of files) {
     const filePath: string = path.join(rootPath, file);
     const isDirectory: boolean = fs.statSync(filePath).isDirectory();
+    yield { path: filePath, isDirectory: isDirectory };
     if (isDirectory) {
-      yield { path: filePath, isDirectory: isDirectory }; // @TODO こう書いて動いたが納得してない
       yield* walk(filePath);
-    } else {
-      yield { path: filePath, isDirectory: isDirectory };
     }
   }
 }
