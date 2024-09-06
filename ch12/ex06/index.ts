@@ -16,7 +16,7 @@ export function* walk(rootPath: string): Generator<WalkPath> {
   }
 }
 
-// WI
+// 実施例
 const printF = (rootPath: string) => {
   for (const f of walk(rootPath)) {
     console.log(f);
