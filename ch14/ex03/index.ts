@@ -13,7 +13,7 @@ export class IgnoreAccentPattern {
   }
 
   // 合成可能なダイアクリティカルマークをUnicode正規化して分解・除去
-  // Caféをeと´に分解したあとは正規化された状態ではないので、再正規化しないと失敗することも処理などによってはあるらしい
+  // Caféをeと´に分解したあとは正規化された状態ではないので、再正規化しないとそのあと困ることもあるらしい
   static removeCDM = (input: string) => {
     return input.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     // return input.normalize("NFD").replace(/[\u0300-\u036f]/g, "").normalize("NFC");
