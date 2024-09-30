@@ -12,7 +12,9 @@ describe("HiraganaUTF16", () => {
     expect(() => new HiraganaUTF16("aん")).toThrow("ひらがな1文字にしてくれ");
     expect(() => new HiraganaUTF16("アこ")).toThrow("ひらがな1文字にしてくれ");
     expect(() => new HiraganaUTF16("")).toThrow("ひらがな1文字にしてくれ");
-    expect(() => new HiraganaUTF16("🧑‍🧑‍🧒")).toThrow("ひらがな1文字にしてくれ");
+    expect(() => new HiraganaUTF16("🧑‍🧑‍🧒")).toThrow(
+      "ひらがな1文字にしてくれ",
+    );
     expect(() => new HiraganaUTF16("薔薇")).toThrow("ひらがな1文字にしてくれ");
   });
 
