@@ -12,7 +12,7 @@ export const loggingProxy = <T extends object>(o: T) => {
       method: `${func.name}`,
       parameter: JSON.stringify(args),
     });
-    console.log(`Logged: ${func.name}, Args: ${JSON.stringify(args)}`);// debug
+    console.log(`Logged: ${func.name}, Args: ${JSON.stringify(args)}`); // debug
   };
 
   const handlers: ProxyHandler<object> = {
@@ -39,9 +39,9 @@ export const loggingProxy = <T extends object>(o: T) => {
     get(target, p, receiver) {
       const val = Reflect.get(target, p, receiver);
       console.log(`get called, val: ${val}`);
-      if (typeof val === 'function') return new Proxy(val, handlers);
+      if (typeof val === "function") return new Proxy(val, handlers);
       return val;
-    }
+    },
   };
 
   return { proxy: new Proxy(o, handlers), log: loggingData };

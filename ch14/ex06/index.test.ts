@@ -18,7 +18,7 @@ describe("loggingProxy", () => {
     const { proxy, log }: { proxy: any; log: LogData[] } = loggingProxy(obj);
     proxy.greet("World");
 
-    console.log(log);// debug
+    console.log(log); // debug
 
     expect(log.length).toBe(1); //!
     expect(log[0].method).toBe("greet");
@@ -34,7 +34,7 @@ describe("loggingProxy", () => {
     const { proxy, log }: { proxy: any; log: LogData[] } = loggingProxy(Person);
     new proxy("Alice");
 
-    console.log(log);// debug
+    console.log(log); // debug
 
     expect(log.length).toBe(1);
     expect(log[0].method).toBe("Person");
@@ -57,7 +57,7 @@ describe("loggingProxy", () => {
     proxy.add(1, 2);
     proxy.multiply(3, 4);
 
-    console.log(log);// debug
+    console.log(log); // debug
 
     expect(log.length).toBe(2); //!
     expect(log[0].method).toBe("add");
