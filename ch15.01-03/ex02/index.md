@@ -1,0 +1,1 @@
+- `npm run server`をしてHTTP・Webサーバを動かしてindex.htmlをブラウザ開く

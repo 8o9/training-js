@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <title>Simple page</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <script type="module">
+      const sayHi = async () => {
+        const outerModule = await import('./index.js');
+        const myName = outerModule.myName;
+        console.log(`Hi, I am ${myName}`);
+      };
+      sayHi();
+    </script>
+  </head>
+  <body>
+    <form id="new-todo-form">
+      <input type="text" id="new-todo" placeholder="What needs to be done?" />
+      <button type="submit">Add</button>
+    </form>
+    <ul id="todo-list"></ul>
+  </body>
+</html>
