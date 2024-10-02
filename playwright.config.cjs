@@ -3,10 +3,11 @@ import { defineConfig } from "@playwright/test";
 export default defineConfig({
   webServer: {
     command: "npm run server",
-    port: 3000,
+    baseURL: "http://localhost:5000",
   },
   use: {
     headless: true,
+    baseURL: "http://localhost:5000",
     launchOptions: { ignoreDefaultArgs: ["--disable-extensions"] },
   },
   testDir: ".",

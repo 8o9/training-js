@@ -17,19 +17,19 @@ module.exports = {
     {
       files: ["*.ts", "*.tsx"],
       env: {
-        "browser": true,
-        "es2021": true
+        browser: true,
+        es2021: true,
       },
       parser: "@typescript-eslint/parser",
       extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
       parserOptions: {
-        "ecmaVersion": "latest",
-        "sourceType": "module"
+        ecmaVersion: "latest",
+        sourceType: "module",
       },
       plugins: ["@typescript-eslint"],
       rules: {
-        "semi": [2, "always"]
-      }
-    }
-  ]
+        semi: [2, "always"],
+      },
+    },
+  ],
 };
