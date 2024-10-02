@@ -1,0 +1,14 @@
+- グローバルオブジェクトを参照する方法
+  - ブラウザ内
+    - window, documentなどを呼び出す
+  - node内
+    - globalなどを呼び出す
+  - 問わず
+    - consoleなどを呼び出す
+- ブラウザ独自のグローバルオブジェクトのプロパティやメソッド
+  - window, document, alert, XMLHttpRequest, localStorage, fetch, performance, screen, location, history
+- グローバルオブジェクトにundefinedが定義されていることの確認
+  - ブラウザのコンソールで`console.log('undefined' in window);`を実行して`true`が返ること
+  - ブラウザのコンソールで`console.log("Drizzt_Do'Urden" in window);`を実行して`false`が返ること
+- 過去のES仕様で発生していた問題
+  - グローバルオブジェクトにundefinedが定義されていたが上書きできたので問題だった。ECMA Script 5以降で上書きできなくなった
