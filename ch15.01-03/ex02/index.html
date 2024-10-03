@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width" />
     <script type="module">
       const sayHi = async () => {
-        const outerModule = await import('./index.js');
+        const outerModule = await import("./index.js");
         const myName = outerModule.myName;
         console.log(`Hi, I am ${myName}`);
       };
