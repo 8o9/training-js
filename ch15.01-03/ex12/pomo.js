@@ -1,0 +1,1 @@
+javascript:(() => { const startPomodoro = () => { alert("Pomodoro session started!"); setTimeout(() => { alert("25 minutes are up! Time for a break."); setTimeout(() => { alert("5 minutes have flown by! Ready to start again?"); startPomodoro(); }, 5 * 60 * 1000); }, 25 * 60 * 1000); }; startPomodoro(); })();

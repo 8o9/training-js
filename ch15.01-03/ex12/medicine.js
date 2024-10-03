@@ -1,0 +1,1 @@
+javascript:(() => { const checkMedication = () => { const now = new Date(); const hours = now.getHours(); if (hours === 10) { alert("朝の薬飲んだ？"); } else if (hours === 18) { alert("夜の薬飲んだ？"); } }; setInterval(checkMedication, 60 * 1000); })();
