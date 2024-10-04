@@ -1,10 +1,10 @@
 - グローバルオブジェクトを参照する方法
   - ブラウザ内
-    - window, documentなどを呼び出す
+    - windowを呼び出す
   - node内
-    - globalなどを呼び出す
+    - globalを呼び出す
   - 問わず
-    - consoleなどを呼び出す
+    - globalThisを呼び出す
 - ブラウザ独自のグローバルオブジェクトのプロパティやメソッド
   - window, document, alert, XMLHttpRequest, localStorage, fetch, performance, screen, location, history
 - グローバルオブジェクトにundefinedが定義されていることの確認
