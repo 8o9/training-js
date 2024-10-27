@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title>Simple ToDo</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <script type="module" src="/ch15.04-10/ex01/index.js"></script>
+    <link rel="stylesheet" href="/ch15.04-10/ex01/style.css" />
+  </head>
+  <body>
+    <form id="new-todo-form">
+      <input type="text" id="new-todo" placeholder="What needs to be done?" />
+      <button>Add</button>
+    </form>
+    <ul id="todo-list">
+    </ul>
+
+    <template id="todo-template">
+      <li>
+        <div class="view">
+          <input class="toggle" type="checkbox" />
+          <label class="content"></label>
+          <button class="destroy">❌</button>
+        </div>
+      </li>
+    </template>
+  </body>
+</html>
