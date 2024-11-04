@@ -1,83 +1,83 @@
-body {
-  font-family: 'Times New Roman', Times, serif;
-  background-color: #1c1c1c;
-  color: #dcdcdc;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-  flex-direction: column;
+body {/* <body> */
+  font-family: 'Times New Roman', Times, serif;/* 優先順位順のフォント群 */
+  background-color: #1c1c1c;/* 背景 */
+  color: #dcdcdc;/* 文字色 */
+  display: flex;/* 要素と小要素の配置。フレックスボックスモデル */
+  justify-content: center;/* この場合はflex-direction主軸(clmn)でフレックスボックス要素をセンター揃え */
+  align-items: center;/* rowで中央揃え(縦方向) */
+  height: 100vh;/* 100 viewport height = 表示領域の高さいっぱい(100%)まで */
+  margin: 0;/* 要素のマージン0 */
+  flex-direction: column;/* フレックスボックスの主軸がcolumn, ややこしいが横方向 */
 }
 
-form {
+form {/* <form> */
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 20px;/* 4つあるうちの下のマージン */
 }
 
-input[type="text"] {
-  width: 300px;
-  padding: 10px;
-  border: 1px solid #444;
-  border-radius: 4px;
+input[type="text"] {/* <input type="text"> */
+  width: 300px;/* paddingの内側のコンテンツ領域(文字があるところ)の幅 */
+  padding: 10px;/* marginの内側のborderの内側のpadding領域が4つそれぞれ10px */
+  border: 1px solid #444;/* marginの内側のboarderの指定. 幅・線種・色 */
+  border-radius: 4px;/* 要素の内側の丸み。R */
   font-size: 16px;
   background-color: #2c2c2c;
   color: #dcdcdc;
 }
 
-button {
-  padding: 10px 15px;
-  border: none;
-  background-color: #444;
+button {/* <button>, Addボタン */
+  padding: 10px 15px;/* 上下が10px, 左右が15pxという指定 */
+  border: none;/* borderなし */
+  background-color: #444;/* <input>と同じ背景色らしいがそうは見えなかった */
   color: #dcdcdc;
   border-radius: 4px;
-  cursor: pointer;
+  cursor: pointer;/* マウス矢印が要素の上にいる時の種類。pointerはリンクを示す指の形 */
   font-size: 16px;
-  margin-left: 10px;
+  margin-left: 10px;/* <input>と<button>の間をここで作っている */
 }
 
-button:hover {
-  background-color: #666;
+button:hover {/* <button :hover> */
+  background-color: #666;/* マウス矢印がボタン要素の上にいる時、背景が変わる */
 }
 
-ul {
-  list-style: none;
+ul {/* <ul> */
+  list-style: none;/* 箇条書きの最初の丸などの装飾がなし */
   padding: 0;
   width: 320px;
 }
 
-li {
+li {/* <li> */
   background-color: #2c2c2c;
   border: 1px solid #444;
   border-radius: 4px;
   padding: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 10px;/* ToDo要素を縦に並べるときの隙間 */
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between;/* flexで主軸方向に均等配置, bodyから引き継ぐのでcolumnなので横軸方向均等配置 最初の要素は先頭に寄せるので左側にビタッと寄せる */
   align-items: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);/* 影のオフセットはx(→), y(↓), bokashi, color */
 }
 
-li.completed .content {
-  text-decoration: line-through;
-  color: #888;
+li.completed .content {/*<li class="completed">で要素のclass="content" この場合ToDoの内容 */
+  text-decoration: line-through;/* 文字の装飾として要素を左右に貫く線(完了なので) */
+  color: #888;/* 文字の色.この場合上記の線も。line-throughの文字をはみ出した端の線色は白 */
 }
 
-.toggle {
+.toggle {/* toggleクラス */
   margin-right: 10px;
 }
 
-.destroy {
-  background: none;
+.destroy {/* destroyクラス(❌) */
+  background: none;/* transparent */
   border: none;
-  color: #d9534f;
+  color: #d9534f;/* 文字赤 */
   font-size: 20px;
-  cursor: pointer;
+  cursor: pointer;/* link */
 }
 
-.destroy:hover {
-  color: #c9302c;
+.destroy:hover {/* :hover カーソルがおかれたとき */
+  color: #c9302c;/* 変わったかわからない... */
 }
 
 .completed {
