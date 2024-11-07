@@ -19,12 +19,10 @@ let animationId = null;
 const sound = new Audio("./decision1.mp3");
 
 // ライフゲームのセル (true or false) をランダムに初期化する
-const probabilityOfTrue = 0.1;
 let grid = new Array(ROWS)
   .fill(null)
   .map(() =>
-    // new Array(COLS).fill(null).map(() => !!Math.floor(Math.random() * 2))
-    new Array(COLS).fill(null).map(() => Math.random() < probabilityOfTrue)// 疎にする場合
+    new Array(COLS).fill(null).map(() => !!Math.floor(Math.random() * 2))
   );
 
 // grid を canvas に描画する
@@ -54,16 +52,14 @@ function updateGrid(grid) {
         for (let kr = -1; kr <= 1; kr++) {
           const row_k = Math.min(ROWS - 1, Math.max(0, row + kr));
           const col_k = Math.min(COLS - 1, Math.max(0, col + kc));
-          aliveSum += grid[row_k][col_k] ? 1 : 0;
+          aliveSum += (grid[row_k][col_k] ? 1 : 0);
         }
       }
       // dead or alive in next-gen
+      // @TODO: ライフゲームっぽくならないので何か間違え
       let d_a = false;
-      switch (aliveSum) {
-        case 2:
-        case 3:
-          d_a = true;
-      }
+      if((grid[row][col] === false) && (aliveSum === 3)) d_a = true;
+      if((grid[row][col] === true) && ((aliveSum === 2) || (aliveSum === 3))) d_a = true;
       nextGrid[row][col] = d_a;
     }
   }
@@ -86,7 +82,7 @@ canvas.addEventListener("click", function (evt) {
 // NOTE: リフレッシュレートの高い画面では速く実行される (これを防ぐ場合は下記の例を参照)
 // https://developer.mozilla.org/ja/docs/Web/API/Window/requestAnimationFrame
 let lastTime = 0;
-const interval = 500;// msec
+const interval = 250;// msec
 function update(timestamp) {
   // timestampは自動的に設定されるらしい
   if (timestamp - lastTime >= interval) {
