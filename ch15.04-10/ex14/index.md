@@ -1,0 +1,3 @@
+- リンクをクリックしたときに通信は発生している。例えば`GET http://localhost:3000/foo?_rsc=nzei7`
+- pushStateはリンクをクリックしたときに発生
+- リロードでも大丈夫`GET http://localhost:3000/foo`などになる
