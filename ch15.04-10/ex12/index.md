@@ -1,0 +1,8 @@
+- All, Active, Completedを選択後にブラウザリロードをすると
+  - ex11(hashchange): データが全部消える
+    - `chh15.04-10/ex11/`というURLでGETをサーバ側にリクエストする
+  - ex12(pushState): Not Foundが表示される
+    - `chh15.04-10/ex12/completed`などというURLでGETをサーバ側にリクエストする
+- サーバ側がどのような挙動をすればいいか
+  - GET `chh15.04-10/ex12/completed`で404ならば、GET `chh15.04-10/ex12/`の結果を返す
+  - など
