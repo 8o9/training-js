@@ -88,7 +88,7 @@ canvas.addEventListener("click", function (evt) {
 let lastTime = 0;
 const interval = 500;// msec
 function update(timestamp) {
-  // timestampは自動的に設定されるらし
+  // timestampは自動的に設定されるらしい
   if (timestamp - lastTime >= interval) {
     grid = updateGrid(grid);
     renderGrid(grid);
