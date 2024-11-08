@@ -50,13 +50,14 @@ function updateGrid(grid) {
       let aliveSum = 0;
       for (let kc = -1; kc <= 1; kc++) {
         for (let kr = -1; kr <= 1; kr++) {
+          // 近傍を確認するので自身は無視
+          if ((kc === 0 ) && (kr === 0)) continue;
           const row_k = Math.min(ROWS - 1, Math.max(0, row + kr));
           const col_k = Math.min(COLS - 1, Math.max(0, col + kc));
           aliveSum += (grid[row_k][col_k] ? 1 : 0);
         }
       }
       // dead or alive in next-gen
-      // @TODO: ライフゲームっぽくならないので何か間違え
       let d_a = false;
       if((grid[row][col] === false) && (aliveSum === 3)) d_a = true;
       if((grid[row][col] === true) && ((aliveSum === 2) || (aliveSum === 3))) d_a = true;
