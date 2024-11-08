@@ -4,5 +4,5 @@
   - ex12(pushState): Not Foundが表示される
     - `chh15.04-10/ex12/completed`などというURLでGETをサーバ側にリクエストする
 - サーバ側がどのような挙動をすればいいか
-  - GET `chh15.04-10/ex12/completed`で404ならば、GET `chh15.04-10/ex12/`の結果を返す
-  - など
+  - ex11と合わせるとしたら、GET `chh15.04-10/ex12/completed`で404ならば、GET `chh15.04-10/ex12/`の結果を返す(リダイレクトなど)
+  - できれば`/ex12/completed`などのパスでフィルタしたデータを表示できるようにする
