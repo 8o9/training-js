@@ -3,25 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const list = document.querySelector("#todo-list");
   const input = document.querySelector("#new-todo");
 
-  const savedTodos = JSON.parse(localStorage.getItem("todos")) || [];
-
-  form.addEventListener("submit", (e) => {
-    // form のイベントのキャンセルを実施
-    // 最初にデフォルト動作のキャンセルを明確にし、途中エラーがあって抜けるなどしてキャンセル処理が飛ばされたりしないようにする
-    // なおイベントリスナーの処理が終わるまでデフォルトの動作(ページのリロード)は保留される?
-    e.preventDefault();
-
-    // 両端からホワイトスペースを取り除いた文字列を取得する
-    if (input.value.trim() === "") {
-      return;
-    }
-    const todoName = input.value.trim();
-    // new-todo の中身は空にする
-    input.value = "";
-    const todoId = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
-    addTodo2List(todoId, todoName, "active");
-  });
-
   const addTodo2List = (id, name, status) => {
     // ここから #todo-list に追加する要素を構築する
     const elem = document.createElement("li");
@@ -55,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     d.appendChild(destroy);
     elem.appendChild(d);
     list.prepend(elem);
-  }
+  };
 
   const saveTodos = () => {
     const todos = [];
@@ -66,9 +47,33 @@ document.addEventListener("DOMContentLoaded", () => {
       const status = toggle.checked ? "completed" : "active";
       todos.push({ id, name: label.textContent, status });
     });
-    localStorage.setItem("todos", JSON.stringify(todos));
+    try {
+      localStorage.setItem("todos", JSON.stringify(todos));
+    } catch(e) {
+      console.log("cannot save to localStorage");
+    }
+  };
+
+  try {
+    const savedTodos = JSON.parse(localStorage.getItem("todos")) || [];
+    savedTodos.forEach(todo => addTodo2List(todo.id, todo.name, todo.status));
+  } catch (e) {
+    console.log("err: cannot load from localStorage");
   }
 
-  savedTodos.forEach(todo => addTodo2List(todo.id, todo.name, todo.status));
-  
+  form.addEventListener("submit", (e) => {
+    // form のイベントのキャンセルを実施
+    e.preventDefault();
+
+    // 両端からホワイトスペースを取り除いた文字列を取得する
+    if (input.value.trim() === "") {
+      return;
+    }
+    const todoName = input.value.trim();
+    // new-todo の中身は空にする
+    input.value = "";
+    const todoId = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
+    addTodo2List(todoId, todoName, "active");
+    saveTodos();
+  });
 });
