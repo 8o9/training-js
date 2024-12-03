@@ -24,11 +24,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       console.log(e);
       return false;
     }
-  }
-  retryWithExponentialBackoff(3, () => getAllTask())
-  .then(result => {
+  };
+  retryWithExponentialBackoff(3, () => getAllTask()).then((result) => {
     console.log(result);
-  })
+  });
 });
 
 form.addEventListener("submit", (e) => {
@@ -65,11 +64,10 @@ form.addEventListener("submit", (e) => {
       alert(e);
       return false;
     }
-  }
-  retryWithExponentialBackoff(3, () => createTask(todo))
-  .then(result => {
+  };
+  retryWithExponentialBackoff(3, () => createTask(todo)).then((result) => {
     console.log(result);
-  })
+  });
 });
 
 // API から取得したタスクオブジェクトを受け取って、ToDo リストの要素を追加する
@@ -117,13 +115,11 @@ function appendToDoItem(task) {
       } catch (e) {
         return false;
       }
-    }
-    retryWithExponentialBackoff(3, () => changeTask(_id))
-    .then(result => {
+    };
+    retryWithExponentialBackoff(3, () => changeTask(_id)).then((result) => {
       console.log(result);
       if (!result) alert(result);
-    })
-
+    });
   });
 
   const destroy = document.createElement("button");
@@ -132,7 +128,7 @@ function appendToDoItem(task) {
   // 成功したら elem を削除しなさい
   destroy.addEventListener("click", (ev) => {
     const _id = ev.target.closest("li").id;
-    const deleteTask = async _id => {
+    const deleteTask = async (_id) => {
       try {
         const res = await fetch(apiHost + `/api/tasks/${_id}`, {
           method: "DELETE",
@@ -152,17 +148,17 @@ function appendToDoItem(task) {
         console.log(e);
         return false;
       }
-    }
+    };
     retryWithExponentialBackoff(3, () => deleteTask(_id))
-    .then(result => {
-      console.log(result);
-      if (result) {
-        return;
-      } else {
-        throw new Error(`error: ${result}`);
-      }
-    })
-    .catch(e => alert(e))
+      .then((result) => {
+        console.log(result);
+        if (result) {
+          return;
+        } else {
+          throw new Error(`error: ${result}`);
+        }
+      })
+      .catch((e) => alert(e));
   });
 
   // TODO: elem 内に toggle, label, destroy を追加しなさい
@@ -172,15 +168,12 @@ function appendToDoItem(task) {
 
 // func関数を実行し続けるが、timeoutSec秒だけまっても成功しなければタイムアウトする
 // funcをリトライする時にまつ時間はだんだん長くなる
-export const retryWithExponentialBackoff = (
-  timeoutSec,
-  func,
-) => {
+export const retryWithExponentialBackoff = (timeoutSec, func) => {
   let trialTimes = 0;
   const startTime = Date.now();
   const timeout = timeoutSec * 1000;
 
-  function execute(){
+  function execute() {
     return func().then((result) => {
       if (result === true) {
         // success!
