@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebSocket Client dayo</title>
+  <script type="module">
+    import { sendRequest } from './client.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const input1 = document.getElementById('input1');
+      const input1Id = "0xC0FFEE";
+      const input2 = document.getElementById('input2');
+      const input2Id = "0xBEEF";
+      const button1 = document.getElementById('button1');
+      const button2 = document.getElementById('button2');
+      const output1 = document.getElementById('output1');
+      const output2 = document.getElementById('output2');
+
+      button1.addEventListener('click', () => {
+        const requestId1 = Math.random().toString(36).substring(2, 11);
+        // HTML上に保管する
+        input1.dataset.requestId = requestId1;
+        sendRequest(input1.value, requestId1)
+          .then(response => {
+            // 送信した後にその応答として返ってくるメッセージがあれば表示
+            output1.textContent = `Received response: ${response}`;
+          })
+          .catch(error => {
+            output1.textContent = `Error: ${error.message}`;
+          });
+      });
+
+      button2.addEventListener('click', () => {
+        const requestId2 = Math.random().toString(36).substring(2, 11);
+        input2.dataset.requestId = requestId2;
+        sendRequest(input2.value, requestId2)
+          .then(response => {
+            // 送信した後にその応答として返ってくるメッセージがあれば表示
+            output2.textContent = `Received response: ${response}`;
+          })
+          .catch(error => {
+            output2.textContent = `Error: ${error.message}`;
+          });
+      });
+
+      const wss = new WebSocket('ws://localhost:3003');
+
+      wss.addEventListener('message', (event) => {
+        const message = JSON.parse(event.data);
+        if (message.body.startsWith('Hello, ')) {
+          if (message.id === input1.dataset.requestId) {
+            output1.textContent = `Received response: ${message.body}`;
+          } else if (message.id === input2.dataset.requestId) {
+            output2.textContent = `Received response: ${message.body}`;
+          }
+        }
+      });
+
+      wss.addEventListener('close', () => {
+        console.log('Disconnected from the server');
+      });
+    });
+  </script>
+</head>
+<body>
+  <div>
+    <label for="input1">Request 1:</label>
+    <input type="text" id="input1">
+    <button id="button1">Send Request 1</button>
+    <p id="output1"></p>
+  </div>
+  <div>
+    <label for="input2">Request 2:</label>
+    <input type="text" id="input2">
+    <button id="button2">Send Request 2</button>
+    <p id="output2"></p>
+  </div>
+</body>
+</html>
