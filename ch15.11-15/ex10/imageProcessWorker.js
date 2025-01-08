@@ -1,6 +1,6 @@
 // const filterdData = applyGaussianFilter(data, img.width, img.height);
 // 元々のこの部分をworkerで実施する
-self.onmessage = e => {
+self.onmessage = (e) => {
   const { data, width, height } = e.data;
 
   const applyGaussianFilter = (data, width, height) => {
@@ -52,7 +52,7 @@ self.onmessage = e => {
       }
     }
     return filterD;
-  }
+  };
 
   const filterdData = applyGaussianFilter(data, width, height);
   self.postMessage(filterdData);

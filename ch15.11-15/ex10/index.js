@@ -84,14 +84,14 @@ document.getElementById("image").addEventListener("change", (event) => {
     // const filterdData = applyGaussianFilter(data, img.width, img.height);
     // const outputImageData = new ImageData(filterdData, img.width, img.height);
     // filteredCtx.putImageData(outputImageData, 0, 0);
-    const worker = new Worker('./imageProcessWorker.js');
-    worker.postMessage({ data, width: img.width, height: img.height});
+    const worker = new Worker("./imageProcessWorker.js");
+    worker.postMessage({ data, width: img.width, height: img.height });
 
-    worker.onmessage = e => {
+    worker.onmessage = (e) => {
       const filterdData = e.data;
       const outputImageData = new ImageData(filterdData, img.width, img.height);
       filteredCtx.putImageData(outputImageData, 0, 0);
-    }
+    };
     //!-- ここまで (TODO: メッセージが返ってこなかったらどうなるんだろう)
   });
 
