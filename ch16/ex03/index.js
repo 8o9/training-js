@@ -1,5 +1,5 @@
 import crypto from "crypto";
-import * as fs from 'fs';
+import * as fs from "fs";
 // ここを埋める
 
 const algorithm = "aes-256-cbc";
@@ -64,7 +64,11 @@ async function readEncrypt64() {
 function decrypt64(data, key) {
   // ここを埋める
   // data.ivを元のバイナリ？に戻す
-  const decipher = crypto.createDecipheriv(algorithm, key, Buffer.from(data.iv, "base64"));
+  const decipher = crypto.createDecipheriv(
+    algorithm,
+    key,
+    Buffer.from(data.iv, "base64"),
+  );
   let decrypted = decipher.update(data.value, "base64", "utf8");
   decrypted += decipher.final("utf8");
   return decrypted;
