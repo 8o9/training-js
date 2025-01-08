@@ -1,9 +1,12 @@
 ## マルチスレッドとは
+
 - UNIX系OSの領域でイメージされるのは、[Oracleのページ](https://docs.oracle.com/cd/E19683-01/816-3976/6ma7iosht/index.html)にあるような「1プロセスの中で複数のスレッドが動作すること」
 
 ## mFib.jsの結果
+
 - 45, 1 thread
 - MacOSのアクティビティモニタではnodeプロセスは最大で12スレッド、と表示された。CPU使用率は最大で100%程度
+
 ```shell
 ❯ node mFib.js 45 1
 Worker 0 execution time: 22.627s
@@ -13,9 +16,10 @@ Fibonacci number: 1836311902
 
 - 45, 2 threads
 - MacOSのアクティビティモニタではnodeプロセスは最大で12スレッド、と表示された。CPU使用率は最大で190%程度
+
 ```shell
 ❯ node mFib.js 45 2
- 
+
 Worker 0 execution time: 8.626s
 Worker 1 execution time: 14.034s
 Total execution time: 14.045s
@@ -25,6 +29,7 @@ Fibonacci number: 1836311902
 - 45, 3 threads
 - MacOSのアクティビティモニタではnodeプロセスは最大で14スレッド、と表示された。CPU使用率は最大で250%程度
 - (この辺りでアクティビティモニタに現れるより早くWorkerが終了することがありそうに見えてくる)
+
 ```shell
 ❯ node mFib.js 45 3
 Worker 2 execution time: 4.479s
@@ -36,6 +41,7 @@ Fibonacci number: 1836311902
 
 - 45, 4 threads
 - MacOSのアクティビティモニタではnodeプロセスは最大で15スレッド、と表示された。CPU使用率は最大で290%程度
+
 ```shell
 ❯ node mFib.js 45 4
 Worker 1 execution time: 2.777s
@@ -48,6 +54,7 @@ Fibonacci number: 1836311902
 
 - 45, 8 threads
 - MacOSのアクティビティモニタではnodeプロセスは最大で19スレッド、と表示された。CPU使用率は最大で290%程度
+
 ```shell
 ❯ node mFib.js 45 8
 Worker 7 execution time: 859.382ms
@@ -64,6 +71,7 @@ Fibonacci number: 1836311902
 
 - 45m 16 threads
 - MacOSのアクティビティモニタではnodeプロセスは最大で27スレッド、と表示された。CPU使用率は最大で360%程度
+
 ```shell
 ❯ node mFib.js 45 16
 Worker 9 execution time: 219.468ms
@@ -87,12 +95,14 @@ Fibonacci number: 1836311902
 ```
 
 ## 利用コンピュータのCPUについてと上記結果の考察
+
 - 1.4 GHz クアッドコアIntel Core i5 と言うCPUであった(2019年のMacBook Pro)
 - また論理的なコア数は以下より8と推測される(ハイパースレッディング、物理コアで複数のスレッドを動かせる)
 - 上記結果では、 Worker以外にもスレッドが10以上あるが、
   - 指定したスレッド数ぶんちゃんとモニタで見えるスレッド数も増えていること、
   - 計算内容にもよるが8スレッド程度で結果が飽和していること
-がわかる
+    がわかる
+
 ```
 ❯ sysctl -n hw.logicalcpu
 8
