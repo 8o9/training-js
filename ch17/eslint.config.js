@@ -17,7 +17,7 @@ module.exports = [
       quotes: ['error', 'single'],
       semi: ['error', 'always'],
       'max-len': ['error', { code: 80 }],
-      'no-console': 'warn',
+      'no-console': 'off',
       indent: ['error', 2],
       'comma-dangle': ['error', 'never'],
       'no-with': 'error'

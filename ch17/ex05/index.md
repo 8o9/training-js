@@ -9,7 +9,7 @@
     - Finish: 95 ms
     - DOMContentLoaded: 69 ms
     - Load: 102 ms
-  ![バンドル前 ダウンロード](./noBundle_network.png)
+      ![バンドル前 ダウンロード](./noBundle_network.png)
   - バンドル後
     - 3 requests
     - 23.9 kB transferred
@@ -17,4 +17,4 @@
     - Finish: 77 ms
     - DOMContentLoaded: 51 ms
     - Load: 95 ms
-  ![バンドル後](./network_bundle.png)
+      ![バンドル後](./network_bundle.png)
