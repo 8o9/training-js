@@ -13,14 +13,14 @@ function ToDoApp() {
     setTodos([{ text: newTodo, completed: false }, ...todos]);
     setNewTodo('');
   };
-  
+
   // done <-> undone
   const toggleTodo = (index) => {
     const newTodos = [...todos];
     newTodos[index].completed = !newTodos[index].completed;
     setTodos(newTodos);
   };
-  
+
   const removeTodo = (index) => {
     // 消すもの以外を残す
     const newTodos = todos.filter((_, i) => i !== index);
@@ -29,19 +29,24 @@ function ToDoApp() {
 
   return (
     <div className="uk-container uk-margin-to">
-      <form onSubmit={handleSubmit} className="uk-form-stacked uk-margin-bottom uk-flex">
+      <form
+        onSubmit={handleSubmit}
+        className="uk-form-stacked uk-margin-bottom uk-flex"
+      >
         <fieldset class="uk-fieldset">
-        <legend class="uk-legend">TODO</legend>
-        <div class="uk-margin uk-flex">
-        <input
-          type="text"
-          value={newTodo}
-          onChange={(e) => setNewTodo(e.target.value)}
-          placeholder="What needs to be done?"
-          className="uk-input"
-        />
-        <button type="submit" className="uk-button uk-button-primary">ADD</button>
-        </div>
+          <legend class="uk-legend">TODO</legend>
+          <div class="uk-margin uk-flex">
+            <input
+              type="text"
+              value={newTodo}
+              onChange={(e) => setNewTodo(e.target.value)}
+              placeholder="What needs to be done?"
+              className="uk-input"
+            />
+            <button type="submit" className="uk-button uk-button-primary">
+              ADD
+            </button>
+          </div>
         </fieldset>
       </form>
       <ul className="uk-list uk-list-divider">
@@ -54,14 +59,20 @@ function ToDoApp() {
                 onChange={() => toggleTodo(index)}
                 className="uk-checkbox uk-margin-small-right"
               />
-              <label style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
+              <label
+                style={{
+                  textDecoration: todo.completed ? 'line-through' : 'none'
+                }}
+              >
                 {todo.text}
               </label>
               <button
                 onClick={() => removeTodo(index)}
                 className="uk-button uk-button-danger uk-button-small uk-margin-left"
                 style={{ backgroundColor: '#dc3545', color: '#fff' }}
-              >X</button>
+              >
+                X
+              </button>
             </div>
           </li>
         ))}

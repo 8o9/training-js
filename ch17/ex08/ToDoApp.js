@@ -12,14 +12,14 @@ function ToDoApp() {
     setTodos([{ text: newTodo, completed: false }, ...todos]);
     setNewTodo('');
   };
-  
+
   // done <-> undone
   const toggleTodo = (index) => {
     const newTodos = [...todos];
     newTodos[index].completed = !newTodos[index].completed;
     setTodos(newTodos);
   };
-  
+
   const removeTodo = (index) => {
     // 消すもの以外を残す
     const newTodos = todos.filter((_, i) => i !== index);
@@ -46,7 +46,11 @@ function ToDoApp() {
                 checked={todo.completed}
                 onChange={() => toggleTodo(index)}
               />
-              <label style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
+              <label
+                style={{
+                  textDecoration: todo.completed ? 'line-through' : 'none'
+                }}
+              >
                 {todo.text}
               </label>
               <button onClick={() => removeTodo(index)}>❌</button>
